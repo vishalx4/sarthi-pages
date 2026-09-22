@@ -1,0 +1,124 @@
+/* Sarthi public pages — deliberately one small stylesheet with no build step,
+   no web fonts and no external requests, so GitHub Pages serves these
+   instantly and Google's consent-screen crawler always reaches them. The
+   palette mirrors the product's Nothing Pop skin: neutral greyscale carrying
+   the hierarchy, one red accent, no gradients or shadows. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f2f2f2;
+  --line: #cfcfcf;
+  --t1: #141414;
+  --t2: #4a4a4a;
+  --accent: #b3151c;
+  --measure: 46rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --surface: #0b0b0b;
+    --line: #303030;
+    --t1: #ededed;
+    --t2: #a8a8a8;
+    --accent: #ff5f68;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
+
+header.site {
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  margin-bottom: 48px;
+}
+header.site .wrap { display: flex; align-items: center; gap: 14px; }
+
+.mark {
+  width: 15px;
+  height: 15px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.brand { font-weight: 700; letter-spacing: -0.01em; font-size: 1.05rem; }
+.brand span {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--t2);
+}
+header.site nav { margin-left: auto; display: flex; gap: 22px; }
+header.site nav a {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t2);
+  text-decoration: none;
+}
+header.site nav a:hover { color: var(--t1); }
+
+h1 { font-size: 2.1rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 8px; }
+h2 {
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+  margin: 44px 0 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+h2:first-of-type { border-top: none; padding-top: 0; }
+p, li { color: var(--t2); }
+li { margin-bottom: 6px; }
+strong { color: var(--t1); }
+a { color: var(--accent); }
+
+.updated {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t2);
+  margin: 0 0 40px;
+}
+
+.lede { font-size: 1.12rem; color: var(--t1); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+  margin: 26px 0;
+}
+.card p:last-child { margin-bottom: 0; }
+
+table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 0.94rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--t1); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+td { color: var(--t2); }
+
+footer.site {
+  border-top: 1px solid var(--line);
+  margin-top: 72px;
+  padding: 26px 0 60px;
+  font-size: 0.8rem;
+  color: var(--t2);
+}
+footer.site a { color: var(--t2); }
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.65rem; }
+  header.site nav { gap: 14px; }
+}
